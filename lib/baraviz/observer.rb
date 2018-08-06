@@ -1,5 +1,5 @@
 require 'rgl/adjacency'
-require 'capyabara'
+require 'capybara'
 
 module Baraviz
   class Observer
@@ -10,7 +10,6 @@ module Baraviz
       install_capybara_hooks! session
     end
 
-    private
     def install_capybara_hooks! session
       this = self
       Capybara::Session::DSL_METHODS.each do |method|
@@ -33,3 +32,4 @@ module Baraviz
       @graph.add_edge old_page, new_page
     end
   end
+end

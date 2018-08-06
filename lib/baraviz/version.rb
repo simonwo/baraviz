@@ -1,3 +1,3 @@
 module Baraviz
-  VERSION = "0.1.pre"
+  VERSION = "0.5.pre"
 end

@@ -17,7 +17,7 @@ module Baraviz
     end
 
     def on_test_run_finished event
-      @io.write @observer.graph.to_dot_graph.to_s
+      @io.write @observer.clustered_graph.to_s
       @io.close
     end
   end

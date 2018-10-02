@@ -8,6 +8,7 @@ module Baraviz
 
     def initialize session
       @graph = RGL::DirectedAdjacencyGraph.new
+      @forget_next = false
       @external_call = true
       install_capybara_hooks! session
     end
@@ -40,12 +41,17 @@ module Baraviz
       end
     end
 
+    def forget_next!
+      @forget_next = true
+    end
+
     def observe_page page
       # Called for subclasses
     end
 
     def observe_page_change old_page, new_page
-      @graph.add_edge old_page, new_page
+      @graph.add_edge old_page, new_page unless @forget_next
+      @forget_next = false
     end
 
     def make_node v
